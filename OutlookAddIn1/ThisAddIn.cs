@@ -57,7 +57,9 @@ namespace OutlookAddIn1
         {
             try
             {
-                if (mailItem.Subject.Contains("Boom"))
+                if (mailItem.Subject.Contains("Boom")
+                    && mailItem.SenderEmailAddress.Contains("Jim.dicso@sundaysky.com")
+                    && mailItem.Recipients.Cast<Outlook.Recipient>().Any(x => x.Address.Contains("sundaysky@sundaysky.com")))
                 {
                     //MessageBox.Show("Trying to play");
                     p.Play();
